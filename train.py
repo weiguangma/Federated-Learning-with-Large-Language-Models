@@ -112,8 +112,6 @@ def evaluate_test_accuracy(federated_model, test_samples: List[Dict], max_sample
                 elif "公路运输" in expected_output and "公路运输" in generated_text:
                     correct_transport += 1
                     
-                # 可以添加更多评估逻辑...
-                
             except Exception as e:
                 logger.debug(f"评估样本失败: {e}")
                 continue
@@ -236,7 +234,7 @@ def train_federated_qwen(
                             torch.nn.utils.clip_grad_norm_(federated_model.parameters(), max_grad_norm)
                 
                             # 更新参数
-                optimizer.step()
+                            optimizer.step()
                 
                             # 联邦学习同步
                             federated_model.federated_step()
@@ -266,9 +264,9 @@ def train_federated_qwen(
                             'valid_steps': valid_steps
                         })
                 
-            except Exception as e:
+                except Exception as e:
                     logger.warning(f"处理样本失败: {e}")
-                continue
+                    continue
             
             # Epoch结束
             if epoch_valid_steps > 0:
@@ -312,7 +310,7 @@ def train_federated_qwen(
         logger.info(f"   - 有效训练步骤: {valid_steps}")
         logger.info(f"   - 最终平均损失: {total_loss / valid_steps if valid_steps > 0 else 0:.4f}")
     
-    return True
+        return True
         
     except Exception as e:
         logger.error(f"❌ 训练失败: {e}")
