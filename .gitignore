@@ -32,3 +32,6 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+figures
+federated_qwen_output
