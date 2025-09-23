@@ -1,0 +1,9 @@
+{
+  "epochs": 1,
+  "learning_rate": 2e-06,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "total_loss": 20.677378869094696,
+  "valid_steps": 4000,
+  "avg_loss": 0.005169344717273674
+}

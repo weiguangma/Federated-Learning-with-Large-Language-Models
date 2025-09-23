@@ -1,0 +1,34 @@
+# 数据
+data/
+datasets/
+*.csv
+*.tsv
+*.xlsx
+*.zip
+
+# 模型/权重
+models/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.h5
+
+# 运行产物/日志
+runs/
+output/
+*.log
+*.out
+*.tmp
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# 缓存/IDE
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
