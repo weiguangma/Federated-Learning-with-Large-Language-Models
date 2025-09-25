@@ -1,0 +1,71 @@
+# 消融实验配置
+ablation_experiments:
+  # 基准实验：使用所有三个客户端
+  baseline:
+    name: "完整联邦学习（港口+铁路+海关）"
+    description: "使用所有三个客户端的基准实验"
+    clients: ["port", "railway", "customs"]
+    output_suffix: "baseline_all_clients"
+    
+  # 消融实验1：去掉港口客户端
+  no_port:
+    name: "去除港口客户端（铁路+海关）"
+    description: "验证没有港口信息时的模型性能"
+    clients: ["railway", "customs"]
+    output_suffix: "ablation_no_port"
+    
+  # 消融实验2：去掉铁路客户端
+  no_railway:
+    name: "去除铁路客户端（港口+海关）"
+    description: "验证没有铁路信息时的模型性能"
+    clients: ["port", "customs"]
+    output_suffix: "ablation_no_railway"
+    
+  # 消融实验3：去掉海关客户端
+  no_customs:
+    name: "去除海关客户端（港口+铁路）"
+    description: "验证没有海关信息时的模型性能"
+    clients: ["port", "railway"]
+    output_suffix: "ablation_no_customs"
+
+# 实验参数配置
+experiment_params:
+  # 训练参数
+  training:
+    epochs: 3
+    learning_rate: 2e-6
+    batch_size: 4
+    grad_accum: 4
+    max_samples: 4000
+    save_steps: 500
+    
+  # 评估参数
+  evaluation:
+    max_samples: 1000
+    max_new_tokens: 200
+    temperature: 0.7
+    
+  # 数据参数
+  data:
+    data_dir: "/root/autodl-tmp/Federated_learning/code_v01/verify_data"
+    output_base_dir: "ablation_experiments"
+    railway_ratio: 0.6
+    random_seed: 42
+
+# 结果比较指标
+comparison_metrics:
+  - "destination_accuracy"  # 目的地预测准确率
+  - "transport_accuracy"    # 运输方式预测准确率
+  - "training_loss"         # 训练损失
+  - "convergence_speed"     # 收敛速度
+  - "model_complexity"      # 模型复杂度
+
+# 实验输出目录结构
+output_structure:
+  base_dir: "ablation_experiments"
+  subdirs:
+    data: "data"
+    models: "models"
+    logs: "logs"
+    results: "results"
+    reports: "reports"
