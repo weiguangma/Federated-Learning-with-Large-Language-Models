@@ -10,7 +10,8 @@ set -e  # 遇到错误时退出
 # 脚本配置
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-MODEL_PATH="/root/autodl-tmp/Federated_learning/llm_init_ckpt/Qwen2.5-0.5B-Instruct"
+#MODEL_PATH="/root/autodl-tmp/Federated_learning/llm_init_ckpt/Qwen2.5-0.5B-Instruct"
+MODEL_PATH="C:\Users\65474\Desktop\FLLLM\Qwen2.5-0.5B-Instruct"
 DATA_DIR="$PROJECT_DIR/data/enhanced_qwen"
 OUTPUT_DIR="$PROJECT_DIR/federated_qwen_output"
 # DATA_DIR="$PROJECT_DIR/data/debug_qwen"

@@ -10,7 +10,8 @@ set -e  # 遇到错误时退出
 # 脚本配置
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-DATA_DIR="/root/autodl-tmp/Federated_learning/code_v01/verify_data"
+#DATA_DIR="/root/autodl-tmp/Federated_learning/code_v01/verify_data"
+DATA_DIR="$PROJECT_DIR/data/verify_data"
 OUTPUT_DIR="$PROJECT_DIR/data/enhanced_qwen"
 # OUTPUT_DIR="$PROJECT_DIR/data/debug_qwen"
 SAMPLE_SIZE=5000

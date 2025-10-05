@@ -10,14 +10,16 @@ set -e  # 遇到错误时退出
 # 脚本配置
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-MODEL_PATH="/root/autodl-tmp/Federated_learning/llm_init_ckpt/Qwen2.5-0.5B-Instruct"
+#MODEL_PATH="/root/autodl-tmp/Federated_learning/llm_init_ckpt/Qwen2.5-0.5B-Instruct"
+MODEL_PATH="C:\Users\65474\Desktop\FLLLM\Qwen2.5-0.5B-Instruct"
 CHECKPOINT_PATH="$PROJECT_DIR/federated_qwen_output/federated_qwen_model.pth"
 TEST_DATA="$PROJECT_DIR/data/enhanced_qwen/enhanced_qwen_test.jsonl"
 OUTPUT_FILE="$PROJECT_DIR/evaluation_results.json"
 MAX_SAMPLES=10000
 MAX_NEW_TOKENS=200
 TEMPERATURE=0.9
-DEVICE="cuda"
+#DEVICE="cuda"
+DEVICE="cpu"
 
 # 颜色输出
 RED='\033[0;31m'
